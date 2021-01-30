@@ -196,10 +196,11 @@ public class RsaUtils {
         // 明文
         String data1 = "RSA 非对称加密=====私钥加密，公钥解密";
         System.out.println("明文:" + data1);
+
         // 授权服务端: 用私钥加密明文, 返回加密后的数据
-        byte[] cipherData1 = encryptPublic(data1.getBytes(), pubKey);
+        byte[] cipherData1 = encryptPrivate(data1.getBytes(), priKey);
         // 被授权的服务端: 用公钥解密数据, 返回原文
-        byte[] plainData1 = decryptPrivate(cipherData1, priKey);
+        byte[] plainData1 = decryptPublic(cipherData1, pubKey);
         // 输出查看解密后的原文
         System.out.println("公钥解密后：" + new String(plainData1));
 
